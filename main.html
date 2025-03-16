@@ -46,13 +46,14 @@
         const imageContainer = document.getElementById("imageContainer");
 
         imageSet.forEach((imgSrc, index) => {
-            let img = document.createElement("img");
-            img.src = imgSrc;
-            img.classList.add("image-box");
-            img.dataset.index = index;
-            img.onclick = () => selectImage(img, imgSrc);
-            imageContainer.appendChild(img);
-        });
+    let img = document.createElement("img");
+    img.src = imgSrc;
+    img.classList.add("image-box", `img${index + 1}`); // Assign unique class like img1, img2, etc.
+    img.dataset.index = index;
+    img.onclick = () => selectImage(img, imgSrc);
+    imageContainer.appendChild(img);
+});
+
 
         function selectImage(img, imgSrc) {
             if (selectedImages.length < 2 && !selectedImages.includes(img)) {
